@@ -53,8 +53,21 @@ export default class Room {
         })
 
 
+
+        const rectLight = new THREE.RectAreaLight(
+            0xffffff,
+            1,
+            0.5,
+            0.7
+        );
+        rectLight.position.set(7.68244, 7, 0.5)
+        rectLight.rotation.x = -Math.PI / 2
+        rectLight.rotation.z = Math.PI / 4
+        this.actualRoom.add(rectLight)
+
         this.scene.add(this.actualRoom);
         this.actualRoom.scale.set(0.11, 0.11, 0.11);
+
     }
 
     setAnimation() {
@@ -66,7 +79,7 @@ export default class Room {
     onMouseMove() {
         window.addEventListener("mousemove", (e) => {
             this.rotation = (e.clientX - window.innerWidth / 2) * 2 / window.innerWidth
-            this.lerp.target = this.rotation * 0.1 ;
+            this.lerp.target = this.rotation * 0.1;
         })
     }
 

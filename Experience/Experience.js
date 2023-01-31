@@ -9,6 +9,7 @@ import Camera from './Camera';
 import Renderer from './Renderer';
 
 import World from './World/World';
+import Theme from './Theme';
 
 export default class Experience {
     constructor(canvas) {
@@ -23,8 +24,9 @@ export default class Experience {
         this.renderer = new Renderer();
         this.time = new Time();
         this.resources = new Resources(assets);
+        this.theme = new Theme();
         this.world = new World();
-        
+
         this.sizes.on("resize", () => {
             this.resize();
         })
