@@ -129,6 +129,7 @@ svg{
   z-index:99999;
   width: 100%;
   height: 100vh;
+  overflow: hidden;
 }
 
 .page-wrapper{
@@ -289,7 +290,7 @@ svg{
   position: relative;
   padding: 20% 5%;
   border-bottom: 2px solid var(--color-pink);
-  padding-bottom: 400px;
+  padding-bottom: 100px;
 }
 
 .section-intro-wrapper:nth-child(3){

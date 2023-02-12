@@ -10,7 +10,7 @@ export default class Room {
         this.time = this.experience.time;
         this.room = this.resources.items.room;
         this.actualRoom = this.room.scene
-
+        this.roomChildren = {}
         this.lerp = {
             current: 0,
             target: 0,
@@ -49,7 +49,19 @@ export default class Room {
                 });
             }
 
+            if (child.name === "Mini_Floor") {
+                child.position.x = -0.289521;
+                child.position.z = 8.83572;
+            }
 
+            child.scale.set(0, 0, 0);
+            
+            if(child.name === "Cube") {
+                // child.scale.set(1, 1, 1);
+                child.position.set(0, -1.5, 0);
+                child.rotation.y = Math.PI / 4;
+            }
+            this.roomChildren[child.name.toLowerCase()] = child
         })
 
 
@@ -67,7 +79,8 @@ export default class Room {
 
         this.scene.add(this.actualRoom);
         this.actualRoom.scale.set(0.11, 0.11, 0.11);
-
+        this.roomChildren["rectLight"] = rectLight;
+        
     }
 
     setAnimation() {
