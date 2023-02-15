@@ -29,6 +29,7 @@ export default class Experience {
         this.theme = new Theme();
         this.world = new World();
         this.preloader = new Preloader();
+
         this.preloader.on("enablecontrols", () => {
             this.controls = new Controls();
         })
@@ -43,13 +44,16 @@ export default class Experience {
 
     resize() {
         this.camera.resize();
+        this.world.resize();
         this.renderer.resize();
-
     }
 
     update() {
         this.camera.update();
         this.renderer.update();
-        this.world.update()
+        this.world.update();
+        if (this.controls) {
+            this.controls.update();
+        }
     }
 }
