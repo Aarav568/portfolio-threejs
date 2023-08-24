@@ -1,3 +1,4 @@
+//Changing to typescript
 import * as THREE from 'three'
 
 import Sizes from './utils/Sizes';
